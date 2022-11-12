@@ -1,13 +1,19 @@
 package org.saki.core.stage;
 
 import org.saki.core.IState;
+import org.saki.core.window.main.GamePanel;
 
 import java.awt.*;
 
 /**
- * Useless ,just for placeholder
+ * This state use to show the Map for player
  */
-public class EmptyState implements IState {
+public class MapState implements IState {
+
+    private GamePanel panel;
+    public MapState(GamePanel panel){
+        this.panel = panel;
+    }
     @Override
     public void Update() {
 

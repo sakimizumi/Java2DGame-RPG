@@ -12,7 +12,9 @@ public class Const {
     public static final int FPS = 60;
     public static final String GAME_NAME = "RPG 2D";
 
-
+    public static final int DEFAULT_TIP_DURATION = 4;
+    public static final int DEFAULT_TIP_POS_X = Const.BLOCK_SIZE * 4;
+    public static final int DEFAULT_TIP_POS_Y = Const.BLOCK_SIZE * 4;
     public static ImageResource imageResource;
     public static SoundResource soundResource;
 

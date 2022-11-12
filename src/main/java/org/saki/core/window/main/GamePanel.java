@@ -1,6 +1,7 @@
 package org.saki.core.window.main;
 
 import org.saki.core.StateMachine;
+import org.saki.core.gui.HUD;
 import org.saki.game.Const;
 
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     Thread thread;
     StateMachine stateMachine;
+    HUD hud = new HUD();
 
     public void startGameThread() {
         thread = new Thread(this);
@@ -38,6 +40,7 @@ public class GamePanel extends JPanel implements Runnable {
             lastTime = currentTime;
             if (delta >= 1) {
                 stateMachine.Update();
+                hud.Update();
                 this.repaint();
                 delta--;
             }
@@ -49,5 +52,6 @@ public class GamePanel extends JPanel implements Runnable {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         stateMachine.Render(g);
+        hud.Render(g);
     }
 }

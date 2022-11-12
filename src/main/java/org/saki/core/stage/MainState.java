@@ -1,13 +1,15 @@
 package org.saki.core.stage;
 
 import org.saki.core.IState;
+import org.saki.core.window.main.GamePanel;
 
 import java.awt.*;
 
-/**
- * Useless ,just for placeholder
- */
-public class EmptyState implements IState {
+public class MainState implements IState {
+    private GamePanel panel;
+    public MainState(GamePanel panel){
+        this.panel = panel;
+    }
     @Override
     public void Update() {
 

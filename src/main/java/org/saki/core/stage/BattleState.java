@@ -1,13 +1,19 @@
 package org.saki.core.stage;
 
 import org.saki.core.IState;
+import org.saki.core.StateMachine;
+import org.saki.core.window.main.GamePanel;
 
 import java.awt.*;
 
 /**
- * Useless ,just for placeholder
+ * Battle State for Player to Battle with Monster or Npc
  */
-public class EmptyState implements IState {
+public class BattleState implements IState {
+    private GamePanel panel;
+    public BattleState(GamePanel panel){
+        this.panel = panel;
+    }
     @Override
     public void Update() {
 
