@@ -1,4 +1,4 @@
-package org.saki.asset;
+package org.saki.core.gui;
 
 
 import org.saki.core.widget.IView;
@@ -10,6 +10,10 @@ import java.awt.image.BufferedImage;
 public class Sprite implements IView {
     private BufferedImage image;
 
+    public BufferedImage getImage() {
+        return image;
+    }
+
     public Sprite(BufferedImage image) {
         this.image = image;
     }
@@ -17,7 +21,7 @@ public class Sprite implements IView {
     @Override
     public void Render(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-//        g2d.drawImage(this.image,getStartX() - (getWidth() / 2),getStartY() - (getHeight() / 2),getWidth(),getHeight(),null);
+        g2d.drawImage(this.image,100,100,32,32,null);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package org.saki.asset;
+package org.saki.core.gui;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -17,7 +17,9 @@ public class SpriteSheet {
     public Sprite getSprite(int i) {
         return sheet.get(i);
     }
-
+    public BufferedImage getImage(int i){
+        return sheet.get(i).getImage();
+    }
     public static class SpriteSheetBuilder {
         private BufferedImage image;
         private int rows, cols;

@@ -9,7 +9,7 @@ import java.util.Map;
 public class StateMachine {
     Map<String, IState> mStates = new HashMap<String, IState>();
     IState mCurrentState = new EmptyState();
-    public KeyHandler keyHandler = new KeyHandler();
+
     public void Update()
     {
         mCurrentState.Update();
