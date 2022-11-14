@@ -21,58 +21,79 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
-//        switch (code){
-//            case GameConst.KEY_UP -> PRESS_UP = true;
-//            case GameConst.KEY_DOWN -> PRESS_DOWN = true;
-//            case GameConst.KEY_LEFT -> PRESS_LEFT = true;
-//            case GameConst.KEY_RIGHT -> PRESS_RIGHT = true;
-//            case GameConst.KEY_OK -> PRESS_OK = true;
-//            case GameConst.KEY_BACK -> PRESS_BACK = true;
-//        }
+        switch (code){
+            case KeyEvent.VK_W -> PRESS_UP = true;
+            case KeyEvent.VK_S -> PRESS_DOWN = true;
+            case KeyEvent.VK_A -> PRESS_LEFT = true;
+            case KeyEvent.VK_D -> PRESS_RIGHT = true;
+            case KeyEvent.VK_ENTER -> PRESS_OK = true;
+            case KeyEvent.VK_ESCAPE -> PRESS_BACK = true;
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
-//        switch (code){
-//            case GameConst.KEY_UP -> PRESS_UP = false;
-//            case GameConst.KEY_DOWN -> PRESS_DOWN = false;
-//            case GameConst.KEY_LEFT -> PRESS_LEFT = false;
-//            case GameConst.KEY_RIGHT -> PRESS_RIGHT = false;
-//            case GameConst.KEY_OK -> PRESS_OK = false;
-//            case GameConst.KEY_BACK -> PRESS_BACK = false;
-//        }
+        switch (code){
+            case KeyEvent.VK_W -> PRESS_UP = false;
+            case KeyEvent.VK_S -> PRESS_DOWN = false;
+            case KeyEvent.VK_A -> PRESS_LEFT = false;
+            case KeyEvent.VK_D -> PRESS_RIGHT = false;
+            case KeyEvent.VK_ENTER -> PRESS_OK = false;
+            case KeyEvent.VK_ESCAPE -> PRESS_BACK = false;
+        }
     }
 
-    public boolean isPRESS_UP() {
+    public boolean getButton_UP() {
         boolean temp = PRESS_UP;
         PRESS_UP = false;
         return temp;
     }
 
-    public boolean isPRESS_DOWN() {
+    public boolean getButton_DOWN() {
         boolean temp = PRESS_DOWN;
         PRESS_DOWN = false;
         return temp;
     }
-    public boolean isPRESS_LEFT() {
+    public boolean getButton_LEFT() {
         boolean temp = PRESS_LEFT;
         PRESS_LEFT = false;
         return temp;
     }
-    public boolean isPRESS_RIGHT() {
+    public boolean getButton_RIGHT() {
         boolean temp = PRESS_RIGHT;
         PRESS_RIGHT = false;
         return temp;
     }
-    public boolean isPRESS_OK() {
+    public boolean getButton_OK() {
         boolean temp = PRESS_OK;
         PRESS_OK = false;
         return temp;
     }
-    public boolean isPRESS_BACK() {
+    public boolean getButton_BACK() {
         boolean temp = PRESS_BACK;
         PRESS_BACK = false;
         return temp;
+    }
+
+
+    public boolean getButtonDown_UP() {
+        return PRESS_UP;
+    }
+
+    public boolean getButtonDown_DOWN() {
+        return PRESS_DOWN;
+    }
+    public boolean getButtonDown_LEFT() {
+        return PRESS_LEFT;
+    }
+    public boolean getButtonDown_RIGHT() {
+        return PRESS_RIGHT;
+    }
+    public boolean getButtonDown_OK() {
+        return PRESS_OK;
+    }
+    public boolean getButtonDown_BACK() {
+        return PRESS_BACK;
     }
 }

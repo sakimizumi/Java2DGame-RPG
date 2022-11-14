@@ -43,16 +43,16 @@ public class Player extends GameObject implements IView {
     }
 
     private void positionUpdate() {
-        if(keyHandler.isPRESS_UP()){
+        if(keyHandler.getButton_UP()){
             posY -= speed;
-
-        }else if(keyHandler.isPRESS_DOWN()){
+        }else if(keyHandler.getButton_DOWN()){
             posY += speed;
         }
-        if(keyHandler.isPRESS_LEFT()){
+        if(keyHandler.getButton_LEFT()){
             posX -= speed;
-        }else if (keyHandler.isPRESS_RIGHT()){
+        }else if (keyHandler.getButton_RIGHT()){
             posX += speed;
         }
+        spriteSheet.getSprite(0).setPos(posX,posY);
     }
 }
