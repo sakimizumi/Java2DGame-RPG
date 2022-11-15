@@ -1,7 +1,7 @@
 package org.saki.core.data;
 
 import org.saki.core.gui.SpriteAnimation;
-import org.saki.core.gui.SpriteAnimationGroup;
+import org.saki.core.gui.SpriteAnimationMachine;
 import org.saki.core.gui.SpriteSheet;
 import org.saki.core.KeyHandler;
 import org.saki.core.widget.IView;
@@ -13,9 +13,9 @@ import java.awt.image.BufferedImage;
 public class Player extends GameObject implements IView {
 
     private final SpriteSheet spriteSheet;
-    private SpriteAnimationGroup animationGroup;
+    private SpriteAnimationMachine animationMachine;
     private final KeyHandler keyHandler;
-    private final int speed = 16;
+    private final int speed = 2;
     private int posX = 100,posY = 100;
     public Player(KeyHandler keyHandler) {
         this.tag = "player";
@@ -27,32 +27,47 @@ public class Player extends GameObject implements IView {
     }
 
     private void initAnimation() {
-        animationGroup = new SpriteAnimationGroup();
-        SpriteAnimation spriteAnimation = new SpriteAnimation("idle",spriteSheet.getImage(0));
+        animationMachine = new SpriteAnimationMachine();
+        SpriteAnimation animationWalkDown = new SpriteAnimation("down",spriteSheet.getSprite(1),spriteSheet.getSprite(0),spriteSheet.getSprite(1),spriteSheet.getSprite(2));
+        SpriteAnimation animationWalkLeft = new SpriteAnimation("left",spriteSheet.getSprite(4),spriteSheet.getSprite(3),spriteSheet.getSprite(4),spriteSheet.getSprite(5));
+        SpriteAnimation animationWalkRight = new SpriteAnimation("right",spriteSheet.getSprite(7),spriteSheet.getSprite(6),spriteSheet.getSprite(7),spriteSheet.getSprite(8));
+        SpriteAnimation animationWalkUp = new SpriteAnimation("up",spriteSheet.getSprite(10),spriteSheet.getSprite(9),spriteSheet.getSprite(10),spriteSheet.getSprite(11));
+        animationMachine.add(animationWalkUp);
+        animationMachine.add(animationWalkDown);
+        animationMachine.add(animationWalkRight);
+        animationMachine.add(animationWalkLeft);
+        animationMachine.setPos(posX,posY);
+        animationMachine.change("down");
     }
 
 
     @Override
     public void Render(Graphics g) {
-        spriteSheet.getSprite(0).Render(g);
+        animationMachine.Render(g);
     }
 
     @Override
     public void Update() {
         positionUpdate();
+        animationMachine.Update();
     }
 
     private void positionUpdate() {
-        if(keyHandler.getButton_UP()){
+        if(keyHandler.getButtonDown_UP()){
             posY -= speed;
-        }else if(keyHandler.getButton_DOWN()){
+            animationMachine.change("up");
+        }else if(keyHandler.getButtonDown_DOWN()){
             posY += speed;
-        }
-        if(keyHandler.getButton_LEFT()){
+            animationMachine.change("down");
+        }else if(keyHandler.getButtonDown_LEFT()){
             posX -= speed;
-        }else if (keyHandler.getButton_RIGHT()){
+            animationMachine.change("left");
+        }else if (keyHandler.getButtonDown_RIGHT()){
             posX += speed;
+            animationMachine.change("right");
+        }else{
+            animationMachine.change("idle");
         }
-        spriteSheet.getSprite(0).setPos(posX,posY);
+        animationMachine.setPos(posX,posY);
     }
 }
