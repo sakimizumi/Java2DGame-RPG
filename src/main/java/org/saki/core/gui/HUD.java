@@ -22,6 +22,10 @@ public class HUD implements IView {
     }
 
 
+
+    /**
+     *  Impl IView
+     */
     @Override
     public void Render(Graphics g) {
         Graphics2D graphics2D = (Graphics2D) g;
@@ -36,9 +40,5 @@ public class HUD implements IView {
             showTip = false;
         }
     }
-
-    /**
-     *  Impl IView
-     */
 
 }

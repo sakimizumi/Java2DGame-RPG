@@ -1,4 +1,4 @@
-package org.saki.core.map;
+package org.saki.core.tile;
 
 import java.awt.image.BufferedImage;
 

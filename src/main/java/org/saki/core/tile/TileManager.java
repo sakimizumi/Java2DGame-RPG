@@ -1,7 +1,6 @@
-package org.saki.core.map;
+package org.saki.core.tile;
 
 import org.saki.core.window.main.GamePanel;
-import org.saki.game.Const;
 
 public class TileManager {
     private final GamePanel panel;
@@ -12,7 +11,7 @@ public class TileManager {
         this.tiles = new Tile[10];
     }
 
-    public void loadMap(int mapId){
+    public void loadMap(String mapString){
 
     }
 }

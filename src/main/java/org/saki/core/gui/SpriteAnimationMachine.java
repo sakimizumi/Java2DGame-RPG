@@ -25,13 +25,17 @@ public class SpriteAnimationMachine implements IView {
     private String oldAnimName = "idle";
     private int frameId = 0;
     private int count = 0;
-    public void change(String anim){
+    public void Change(String anim,boolean loop){
         if(!animName.equals(anim)){
             oldAnimName = animName;
             animName = anim;
             frameId = 0;
             changeAnimPos();
         }
+    }
+    private boolean isLoop = false;
+    public void Change(String anim){
+        this.Change(anim,false);
     }
     private void changeAnimPos(){
         SpriteAnimation animation = map.get(animName);

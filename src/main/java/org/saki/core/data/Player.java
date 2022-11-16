@@ -37,7 +37,7 @@ public class Player extends GameObject implements IView {
         animationMachine.add(animationWalkRight);
         animationMachine.add(animationWalkLeft);
         animationMachine.setPos(posX,posY);
-        animationMachine.change("down");
+        animationMachine.Change("down");
     }
 
 
@@ -55,18 +55,18 @@ public class Player extends GameObject implements IView {
     private void positionUpdate() {
         if(keyHandler.getButtonDown_UP()){
             posY -= speed;
-            animationMachine.change("up");
+            animationMachine.Change("up");
         }else if(keyHandler.getButtonDown_DOWN()){
             posY += speed;
-            animationMachine.change("down");
+            animationMachine.Change("down");
         }else if(keyHandler.getButtonDown_LEFT()){
             posX -= speed;
-            animationMachine.change("left");
+            animationMachine.Change("left");
         }else if (keyHandler.getButtonDown_RIGHT()){
             posX += speed;
-            animationMachine.change("right");
+            animationMachine.Change("right");
         }else{
-            animationMachine.change("idle");
+            animationMachine.Change("idle");
         }
         animationMachine.setPos(posX,posY);
     }
