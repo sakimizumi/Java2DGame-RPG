@@ -17,7 +17,6 @@ public class Const {
     public static final int DEFAULT_TIP_POS_Y = Const.BLOCK_SIZE * 4;
     public static ImageResource imageResource;
     public static SoundResource soundResource;
-
     public static void load() {
         imageResource = new ImageResource();
         soundResource = new SoundResource();

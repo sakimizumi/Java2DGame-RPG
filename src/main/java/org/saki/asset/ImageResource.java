@@ -10,10 +10,11 @@ public class ImageResource extends Resource {
     final String RESOURCE_FLOOR = "image/";
     public BufferedImage CUR_HAND;
     public BufferedImage SHEET_PLAYER;
-
+    public BufferedImage SHEET_TILES;
     public ImageResource(){
         CUR_HAND = getImageResource("cur.png");
         SHEET_PLAYER = getImageResource("character/character1.png");
+        SHEET_TILES = getImageResource("tiles.png");
     }
 
     public BufferedImage getImageResource(String file){
