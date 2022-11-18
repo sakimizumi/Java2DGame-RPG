@@ -16,7 +16,7 @@ public class Player extends GameObject implements IView {
     private SpriteAnimationMachine animationMachine;
     private final KeyHandler keyHandler;
     private final int speed = 2;
-    private int posX = 100,posY = 100;
+    private int posX = Const.WIDTH / 2 - Const.BLOCK_SIZE / 2,posY = Const.HEIGHT / 2 - Const.BLOCK_SIZE / 2;
     public Player(KeyHandler keyHandler) {
         this.tag = "player";
         this.keyHandler = keyHandler;
@@ -68,6 +68,6 @@ public class Player extends GameObject implements IView {
         }else{
             animationMachine.Change("idle");
         }
-        animationMachine.setPos(posX,posY);
+
     }
 }

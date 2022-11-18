@@ -75,7 +75,7 @@ public class Map {
         this.width = this.originData[MAP_WIDTH_INDEX];
         this.height = this.originData[MAP_HEIGHT_INDEX];
         this.layer = this.originData[MAP_LAYER_INDEX];
-        this.mapData = Arrays.copyOfRange(this.originData,MAP_LAYER_INDEX + 1,this.originData.length - 1);
+        this.mapData = Arrays.copyOfRange(this.originData,MAP_LAYER_INDEX + 1,this.originData.length );
     }
 
     private byte[] encodeData(){
@@ -89,7 +89,7 @@ public class Map {
     }
     public void saveMap(){
         byte[] bytes = encodeData();
-        File file = new File("asda.map");
+        File file = new File(getName()+".map");
         try(FileOutputStream stream = new FileOutputStream(file)){
             stream.write(bytes);
         } catch (IOException e) {
@@ -118,5 +118,9 @@ public class Map {
 
     public byte getLayer() {
         return layer;
+    }
+
+    public void fillLayer(byte layer, byte value) {
+        Arrays.fill(this.mapData,(layer - 1) * width * height,layer * width * height ,value);
     }
 }
